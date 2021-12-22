@@ -1,11 +1,5 @@
 package globemantics.personnel;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import globemantics.persistence.EmployeeFileSerializer;
-
 /*
 Models an employee form a business perspective
  */
@@ -62,19 +56,5 @@ public abstract class Employee {
 
     public String getFullName() {
         return this.firstName + " " + this.lastName;
-    }
-
-    public static void save(Employee employee) {
-        try {
-            EmployeeFileSerializer repo = new EmployeeFileSerializer();
-
-            Path path = Paths.get(employee.getFullName()
-                    .replace(" ", "_") + ".rec");
-            Files.write(path, repo.persist(employee).toString().getBytes());
-
-            System.out.println("Saved employee " + employee.toString());
-        } catch (IOException e) {
-            System.out.println("ERROR: Could not save employee. " + e);
-        }
     }
 }
