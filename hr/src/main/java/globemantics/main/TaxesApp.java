@@ -9,6 +9,7 @@ import globemantics.persistence.EmployeeFileSerializer;
 import globemantics.persistence.EmployeeRepository;
 import globemantics.personnel.Employee;
 import globemantics.taxes.TaxCalculator;
+import globemantics.taxes.TaxCalculatorFactory;
 
 public class TaxesApp {
     public static void main(String[] args) {
@@ -24,11 +25,9 @@ public class TaxesApp {
         Locale locale = new Locale("en", "US");
         NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(locale);
 
-        // Create tax calculator
-        TaxCalculator taxCalculator = new TaxCalculator();
-
         double totalTaxes = 0;
         for (Employee employee : employees) {
+            TaxCalculator taxCalculator = TaxCalculatorFactory.create(employee);
             // Compute individual tax
             double tax = taxCalculator.calculate(employee);
             String formattedTax = currencyFormatter.format(tax);
