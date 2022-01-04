@@ -7,8 +7,10 @@ public class PartTimeTaxCalculator implements TaxCalculator {
     private final int BASE_HEALTH_INSURANCE = 100;
 
     public double calculate(Employee employee) {
+        double monthlyIncome = employee.getMonthlyIncome();
+
         return BASE_HEALTH_INSURANCE
-                + ((employee.getMonthlyIncome() * 5) / 100)
-                + ((employee.getMonthlyIncome() * INCOME_TAX_PERCENTAGE) / 100);
+                + ((monthlyIncome * 5) / 100)
+                + ((monthlyIncome * INCOME_TAX_PERCENTAGE) / 100);
     }
 }

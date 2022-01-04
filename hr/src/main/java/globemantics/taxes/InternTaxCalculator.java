@@ -6,10 +6,12 @@ public class InternTaxCalculator implements TaxCalculator {
     private final int INCOME_TAX_PERCENTAGE = 16;
 
     public double calculate(Employee employee) {
-        if (employee.getMonthlyIncome() < 350) {
+        double monthlyIncome = employee.getMonthlyIncome();
+
+        if (monthlyIncome < 350) {
             return 0;
         } else {
-            return (employee.getMonthlyIncome() * INCOME_TAX_PERCENTAGE) / 100;
+            return (monthlyIncome * INCOME_TAX_PERCENTAGE) / 100;
         }
     }
 }
