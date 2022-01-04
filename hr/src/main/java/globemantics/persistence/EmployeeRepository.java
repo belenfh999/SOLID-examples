@@ -2,7 +2,9 @@ package globemantics.persistence;
 
 import globemantics.personnel.Employee;
 import globemantics.personnel.FullTimeEmployee;
+import globemantics.personnel.Intern;
 import globemantics.personnel.PartTimeEmployee;
+import globemantics.personnel.Subcontractor;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -33,7 +35,13 @@ public class EmployeeRepository {
         Employee steve = new PartTimeEmployee("Steve Jones", 800);
         Employee magda = new PartTimeEmployee("Magda Iovan", 920);
 
-        return Arrays.asList(anna, billy, steve, magda);
+        Employee john = new Intern("John Lee", 300, 10);
+        Employee catherine = new Intern("Catherine Allison", 500, 15);
+
+        // Subcontractors
+        Employee subcontractor = new Subcontractor("Rebekah Jackson", 3000);
+
+        return Arrays.asList(anna, billy, steve, magda, john, subcontractor, catherine);
     }
 
     public void save(Employee employee) throws IOException {
