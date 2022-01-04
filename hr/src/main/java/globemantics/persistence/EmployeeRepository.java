@@ -1,6 +1,5 @@
 package globemantics.persistence;
 
-import globemantics.logging.ConsoleLogger;
 import globemantics.personnel.Employee;
 import globemantics.personnel.FullTimeEmployee;
 import globemantics.personnel.PartTimeEmployee;
