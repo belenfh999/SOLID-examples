@@ -19,7 +19,7 @@ public class TaxCalculator {
         }
         if (employee instanceof PartTimeEmployee) {
             return BASE_HEALTH_INSURANCE
-                    + ((monthlyIncome * 10) / 100)
+                    + ((monthlyIncome * 5) / 100)
                     + ((monthlyIncome * INCOME_TAX_PERCENTAGE) / 100);
         }
         if (employee instanceof Intern) {
