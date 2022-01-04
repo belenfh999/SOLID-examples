@@ -1,6 +1,9 @@
 package globemantics.taxes;
 
 import globemantics.personnel.Employee;
+import globemantics.personnel.FullTimeEmployee;
+import globemantics.personnel.Intern;
+import globemantics.personnel.PartTimeEmployee;
 
 public class TaxCalculator {
     private final int RETIREMENT_TAX_PERCENTAGE = 10;
@@ -8,8 +11,28 @@ public class TaxCalculator {
     private final int BASE_HEALTH_INSURANCE = 100;
 
     public double calculate(Employee employee) {
-        return BASE_HEALTH_INSURANCE
-                + ((employee.getMonthlyIncome() * RETIREMENT_TAX_PERCENTAGE) / 100)
-                + ((employee.getMonthlyIncome() * INCOME_TAX_PERCENTAGE) / 100);
+        int monthlyIncome = employee.getMonthlyIncome();
+        if (employee instanceof FullTimeEmployee) {
+            return BASE_HEALTH_INSURANCE
+                    + ((monthlyIncome * RETIREMENT_TAX_PERCENTAGE) / 100)
+                    + ((monthlyIncome * INCOME_TAX_PERCENTAGE) / 100);
+        }
+        if (employee instanceof PartTimeEmployee) {
+            return BASE_HEALTH_INSURANCE
+                    + ((monthlyIncome * 10) / 100)
+                    + ((monthlyIncome * INCOME_TAX_PERCENTAGE) / 100);
+        }
+        if (employee instanceof Intern) {
+            if (monthlyIncome < 350) {
+                return 0;
+            } else {
+                return (monthlyIncome * INCOME_TAX_PERCENTAGE) / 100;
+            }
+        }
+        /*
+         * More types to be added if requirements change
+         */
+
+        return 0;
     }
 }
