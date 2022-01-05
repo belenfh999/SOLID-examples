@@ -1,9 +1,9 @@
-package hr.payment;
+package globemantics.payment;
 
-import hr.notifications.EmailSender;
-import hr.persistence.EmployeeFileRepository;
-import hr.persistence.EmployeeFileSerializer;
-import hr.personnel.Employee;
+import globemantics.notifications.EmailSender;
+import globemantics.persistence.EmployeeFileRepository;
+import globemantics.persistence.EmployeeFileSerializer;
+import globemantics.personnel.Employee;
 
 import java.util.List;
 
@@ -11,18 +11,16 @@ public class PaymentProcessor {
 
     private EmployeeFileRepository employeeRepository;
 
-    public PaymentProcessor(){
-        EmployeeFileSerializer serializer =
-                new EmployeeFileSerializer();
-        this.employeeRepository =
-                new EmployeeFileRepository(serializer);
+    public PaymentProcessor() {
+        EmployeeFileSerializer serializer = new EmployeeFileSerializer();
+        this.employeeRepository = new EmployeeFileRepository(serializer);
     }
 
-    public int sendPayments(){
+    public int sendPayments() {
         List<Employee> employees = this.employeeRepository.findAll();
         int totalPayments = 0;
 
-        for(Employee employee : employees){
+        for (Employee employee : employees) {
             totalPayments += employee.getMonthlyIncome();
             EmailSender.notify(employee);
         }
