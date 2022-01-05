@@ -1,7 +1,7 @@
 package globemantics.main;
 
 import globemantics.logging.ConsoleLogger;
-import globemantics.persistence.EmployeeRepository;
+import globemantics.persistence.EmployeeFileRepository;
 import globemantics.persistence.EmployeeFileSerializer;
 import globemantics.personnel.Employee;
 
@@ -14,7 +14,7 @@ public class App {
         EmployeeFileSerializer employeeFileSerializer = new EmployeeFileSerializer();
         ConsoleLogger consoleLogger = new ConsoleLogger();
 
-        EmployeeRepository repository = new EmployeeRepository(employeeFileSerializer);
+        EmployeeFileRepository repository = new EmployeeFileRepository(employeeFileSerializer);
         List<Employee> employees = repository.findAll();
 
         // Save all

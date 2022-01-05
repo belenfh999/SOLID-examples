@@ -18,10 +18,10 @@ application we could use the database for persistence. In this demo,
 we are storing employees in the file system.
  */
 
-public class EmployeeRepository {
+public class EmployeeFileRepository {
     private EmployeeFileSerializer serializer;
 
-    public EmployeeRepository(EmployeeFileSerializer serializer) {
+    public EmployeeFileRepository(EmployeeFileSerializer serializer) {
         this.serializer = serializer;
     }
 

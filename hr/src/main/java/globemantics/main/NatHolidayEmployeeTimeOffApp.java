@@ -4,7 +4,7 @@ import java.util.List;
 
 import globemantics.logging.ConsoleLogger;
 import globemantics.persistence.EmployeeFileSerializer;
-import globemantics.persistence.EmployeeRepository;
+import globemantics.persistence.EmployeeFileRepository;
 import globemantics.personnel.Employee;
 import globemantics.personnel.FullTimeEmployee;
 
@@ -13,7 +13,7 @@ public class NatHolidayEmployeeTimeOffApp {
         // Create dependencies
         ConsoleLogger consoleLogger = new ConsoleLogger();
         EmployeeFileSerializer employeeFileSerializer = new EmployeeFileSerializer();
-        EmployeeRepository repository = new EmployeeRepository(employeeFileSerializer);
+        EmployeeFileRepository repository = new EmployeeFileRepository(employeeFileSerializer);
 
         // Grab employees
         List<Employee> employees = repository.findAll();

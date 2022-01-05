@@ -3,7 +3,7 @@ package globemantics.main;
 import globemantics.documents.Payslip;
 import globemantics.logging.ConsoleLogger;
 import globemantics.persistence.EmployeeFileSerializer;
-import globemantics.persistence.EmployeeRepository;
+import globemantics.persistence.EmployeeFileRepository;
 import globemantics.personnel.Employee;
 
 import java.time.Month;
@@ -14,7 +14,7 @@ public class ExportPayslipMain {
         // Create dependencies
         ConsoleLogger consoleLogger = new ConsoleLogger();
         EmployeeFileSerializer employeeFileSerializer = new EmployeeFileSerializer();
-        EmployeeRepository repository = new EmployeeRepository(employeeFileSerializer);
+        EmployeeFileRepository repository = new EmployeeFileRepository(employeeFileSerializer);
 
         // Grab employees
         List<Employee> employees = repository.findAll();

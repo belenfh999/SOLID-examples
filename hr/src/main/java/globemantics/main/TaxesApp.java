@@ -6,7 +6,7 @@ import java.util.Locale;
 
 import globemantics.logging.ConsoleLogger;
 import globemantics.persistence.EmployeeFileSerializer;
-import globemantics.persistence.EmployeeRepository;
+import globemantics.persistence.EmployeeFileRepository;
 import globemantics.personnel.Employee;
 import globemantics.taxes.TaxCalculator;
 import globemantics.taxes.TaxCalculatorFactory;
@@ -16,7 +16,7 @@ public class TaxesApp {
         // Create employees
         ConsoleLogger consoleLogger = new ConsoleLogger();
         EmployeeFileSerializer employeeFileSerializer = new EmployeeFileSerializer();
-        EmployeeRepository employeeRepository = new EmployeeRepository(employeeFileSerializer);
+        EmployeeFileRepository employeeRepository = new EmployeeFileRepository(employeeFileSerializer);
 
         // Get Employees
         List<Employee> employees = employeeRepository.findAll();

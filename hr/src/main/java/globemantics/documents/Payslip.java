@@ -3,8 +3,6 @@ package globemantics.documents;
 import globemantics.personnel.Employee;
 
 import java.time.Month;
-import java.util.Arrays;
-import java.util.List;
 
 public class Payslip implements ExportableText {
     private String employeeName;
