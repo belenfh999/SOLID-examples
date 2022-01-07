@@ -1,6 +1,7 @@
 package globemantics.payment;
 
 import globemantics.notifications.EmailSender;
+import globemantics.notifications.EmployeeNotifier;
 import globemantics.persistence.EmployeeFileRepository;
 import globemantics.persistence.EmployeeFileSerializer;
 import globemantics.personnel.Employee;
@@ -10,10 +11,11 @@ import java.util.List;
 public class PaymentProcessor {
 
     private EmployeeFileRepository employeeRepository;
+    private EmployeeNotifier employeeNotifier;
 
-    public PaymentProcessor() {
-        EmployeeFileSerializer serializer = new EmployeeFileSerializer();
-        this.employeeRepository = new EmployeeFileRepository(serializer);
+    public PaymentProcessor(EmployeeFileRepository employeeRepository, EmployeeNotifier employeeNotifier) {
+        this.employeeRepository = employeeRepository;
+        this.employeeNotifier = employeeNotifier;
     }
 
     public int sendPayments() {
@@ -22,7 +24,7 @@ public class PaymentProcessor {
 
         for (Employee employee : employees) {
             totalPayments += employee.getMonthlyIncome();
-            EmailSender.notify(employee);
+            this.employeeNotifier.notify(employee);
         }
 
         return totalPayments;
