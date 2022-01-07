@@ -1,17 +1,17 @@
 package globemantics.payment;
 
 import globemantics.notifications.EmployeeNotifier;
-import globemantics.persistence.EmployeeFileRepository;
+import globemantics.persistence.EmployeeRepository;
 import globemantics.personnel.Employee;
 
 import java.util.List;
 
 public class PaymentProcessor {
 
-    private EmployeeFileRepository employeeRepository;
+    private EmployeeRepository employeeRepository;
     private EmployeeNotifier employeeNotifier;
 
-    public PaymentProcessor(EmployeeFileRepository employeeRepository, EmployeeNotifier employeeNotifier) {
+    public PaymentProcessor(EmployeeRepository employeeRepository, EmployeeNotifier employeeNotifier) {
         this.employeeRepository = employeeRepository;
         this.employeeNotifier = employeeNotifier;
     }
