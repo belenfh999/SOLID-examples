@@ -1,7 +1,6 @@
 package globemantics.payment;
 
 import globemantics.notifications.EmailSender;
-import globemantics.persistence.EmployeeFileRepository;
 import globemantics.persistence.EmployeeRepository;
 import globemantics.personnel.Employee;
 import globemantics.personnel.FullTimeEmployee;
@@ -38,7 +37,7 @@ public class PaymentProcessorTest {
                 new PartTimeEmployee("John Doe", 500),
                 new Intern("Gabriel Ortega", 200, 10));
 
-        employeeRepositoryMock = Mockito.mock(EmployeeFileRepository.class);
+        employeeRepositoryMock = Mockito.mock(EmployeeRepository.class);
         Mockito.when(employeeRepositoryMock.findAll())
                 .thenReturn(testEmployees);
 
