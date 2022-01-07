@@ -2,6 +2,7 @@ package globemantics.payment;
 
 import globemantics.notifications.EmailSender;
 import globemantics.persistence.EmployeeFileRepository;
+import globemantics.persistence.EmployeeRepository;
 import globemantics.personnel.Employee;
 import globemantics.personnel.FullTimeEmployee;
 import globemantics.personnel.Intern;
@@ -26,7 +27,7 @@ have been added in the pom.xml file:
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class PaymentProcessorTest {
 
-    private EmployeeFileRepository employeeFileRepositoryMock;
+    private EmployeeRepository employeeRepositoryMock;
     private EmailSender EmailSenderMock;
 
     @BeforeAll
@@ -37,8 +38,8 @@ public class PaymentProcessorTest {
                 new PartTimeEmployee("John Doe", 500),
                 new Intern("Gabriel Ortega", 200, 10));
 
-        employeeFileRepositoryMock = Mockito.mock(EmployeeFileRepository.class);
-        Mockito.when(employeeFileRepositoryMock.findAll())
+        employeeRepositoryMock = Mockito.mock(EmployeeFileRepository.class);
+        Mockito.when(employeeRepositoryMock.findAll())
                 .thenReturn(testEmployees);
 
         EmailSenderMock = Mockito.mock(EmailSender.class);
@@ -47,15 +48,14 @@ public class PaymentProcessorTest {
     @Test
     public void send_payments_should_pay_all_employee_salaries() {
         // arrange
-        // PaymentProcessor paymentProcessor = new PaymentProcessor(
-        // this.employeeFileRepositoryMock,
-        // this.EmailSenderMock
-        // );
+        PaymentProcessor paymentProcessor = new PaymentProcessor(
+                this.employeeRepositoryMock,
+                this.EmailSenderMock);
 
-        // // act
-        // int result = paymentProcessor.sendPayments();
+        // act
+        int result = paymentProcessor.sendPayments();
 
-        // // assert
-        // assertEquals(1700, result);
+        // assert
+        assertEquals(1700, result);
     }
 }
