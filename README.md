@@ -29,7 +29,7 @@ In this module the OCP will be used so that classes/methods and modules are clos
 
 - The new feature to be implemented is a Tax Calculator (initially) with the following requirements:
   - For each (full-time) employee, the taxes consist of three parts:
-  <p align="center">
+<p align="center">
 
 | Base Health Insurance | Income Tax | Retirement Tax |
 | :-------------------: | :--------: | :------------: |
@@ -50,7 +50,9 @@ In this module the OCP will be used so that classes/methods and modules are clos
 
 </p>
 
-- Interns: - Income < 350 -> no tax due to state aid - Else ->
+- Interns: 
+  - Income < 350 -> no tax due to state aid 
+  - Else ->
 <p align="center">
 
 | Base Health Insurance | Income Tax | Retirement Tax |
