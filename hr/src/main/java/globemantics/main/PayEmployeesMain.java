@@ -1,6 +1,10 @@
 package globemantics.main;
 
+import globemantics.notifications.EmailSender;
+import globemantics.notifications.EmployeeNotifier;
 import globemantics.payment.PaymentProcessor;
+import globemantics.persistence.EmployeeFileRepository;
+import globemantics.persistence.EmployeeFileSerializer;
 
 public class PayEmployeesMain {
 
@@ -10,7 +14,10 @@ public class PayEmployeesMain {
      */
 
     public static void main(String[] args) {
-        PaymentProcessor paymentProcessor = new PaymentProcessor();
+        EmployeeFileSerializer serializer = new EmployeeFileSerializer();
+        EmployeeFileRepository employeeRepository = new EmployeeFileRepository(serializer);
+        EmployeeNotifier employeeNotifier = new EmailSender();
+        PaymentProcessor paymentProcessor = new PaymentProcessor(employeeRepository, employeeNotifier);
         int totalPayments = paymentProcessor.sendPayments();
         System.out.println("Total payments " + totalPayments);
     }

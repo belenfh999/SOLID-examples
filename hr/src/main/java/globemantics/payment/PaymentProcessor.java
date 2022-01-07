@@ -1,9 +1,7 @@
 package globemantics.payment;
 
-import globemantics.notifications.EmailSender;
 import globemantics.notifications.EmployeeNotifier;
 import globemantics.persistence.EmployeeFileRepository;
-import globemantics.persistence.EmployeeFileSerializer;
 import globemantics.personnel.Employee;
 
 import java.util.List;
