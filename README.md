@@ -29,10 +29,6 @@ In this module the OCP will be used so that classes/methods and modules are clos
 
 - The new feature to be implemented is a Tax Calculator (initially) with the following requirements:
   - For each (full-time) employee, the taxes consist of three parts:
-  <<<<<<< HEAD
-  =======
-  <p align="center">
-  >>>>>>> f052c26ef88981ff7190ad62a3dba2df7b142a9b
 
 | Base Health Insurance | Income Tax | Retirement Tax |
 | :-------------------: | :--------: | :------------: |
